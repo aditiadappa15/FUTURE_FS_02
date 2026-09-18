@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini CRM Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+
+            <h2>Mini CRM</h2>
+
+            <nav>
+
+                <a href="#dashboard" class="nav-link active">
+                    Dashboard
+                </a>
+
+                <a href="#leads" class="nav-link">
+                    Leads
+                </a>
+
+                <a href="#add-lead" class="nav-link">
+                    Add Lead
+                </a>
+
+            </nav>
+
+            <button id="logoutBtn" class="logout-btn">
+                Logout
+            </button>
+
+        </aside>
+
+
+        <main class="main-content" id="dashboard">
+
+            <header class="topbar">
+
+                <div>
+                    <h1>Dashboard</h1>
+
+                    <p>
+                        Manage your client leads
+                    </p>
+                </div>
+
+            </header>
+
+
+            <section class="stats">
+
+                <div class="stat-card">
+
+                    <h3>Total Leads</h3>
+
+                    <p id="totalLeads">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>New Leads</h3>
+
+                    <p id="newLeads">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Contacted Leads</h3>
+
+                    <p id="contactedLeads">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Converted Leads</h3>
+
+                    <p id="convertedLeads">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>Conversion Percentage</h3>
+
+                    <p id="conversionPercentage">
+                        0%
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <section id="leads" class="content-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Leads
+                        </h2>
+
+                        <p>
+                            View and manage your client leads
+                        </p>
+
+                    </div>
+
+
+                    <button id="addLeadBtn">
+                        Add Lead
+                    </button>
+
+                </div>
+
+
+                <div class="filters">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search by name, email or company"
+                    >
+
+
+                    <select id="statusFilter">
+
+                        <option value="All">
+                            All Status
+                        </option>
+
+                        <option value="New">
+                            New
+                        </option>
+
+                        <option value="Contacted">
+                            Contacted
+                        </option>
+
+                        <option value="Converted">
+                            Converted
+                        </option>
+
+                    </select>
+
+
+                    <select id="sourceFilter">
+
+                        <option value="All">
+                            All Sources
+                        </option>
+
+                        <option value="Website">
+                            Website
+                        </option>
+
+                        <option value="Instagram">
+                            Instagram
+                        </option>
+
+                        <option value="LinkedIn">
+                            LinkedIn
+                        </option>
+
+                        <option value="Referral">
+                            Referral
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Name
+                                </th>
+
+                                <th>
+                                    Email
+                                </th>
+
+                                <th>
+                                    Phone
+                                </th>
+
+                                <th>
+                                    Company
+                                </th>
+
+                                <th>
+                                    Source
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="leadsTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+            <section
+                id="add-lead"
+                class="content-section add-lead-section"
+            >
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Add New Lead
+                        </h2>
+
+                        <p>
+                            Add a new client lead to your CRM
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <form id="leadForm">
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="leadName"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="leadEmail"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Phone
+                            </label>
+
+                            <input
+                                type="text"
+                                id="leadPhone"
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Company
+                            </label>
+
+                            <input
+                                type="text"
+                                id="leadCompany"
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Source
+                            </label>
+
+                            <select id="leadSource">
+
+                                <option value="Website">
+                                    Website
+                                </option>
+
+                                <option value="Instagram">
+                                    Instagram
+                                </option>
+
+                                <option value="LinkedIn">
+                                    LinkedIn
+                                </option>
+
+                                <option value="Referral">
+                                    Referral
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Status
+                            </label>
+
+                            <select id="leadStatus">
+
+                                <option value="New">
+                                    New
+                                </option>
+
+                                <option value="Contacted">
+                                    Contacted
+                                </option>
+
+                                <option value="Converted">
+                                    Converted
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="form-group full-width">
+
+                            <label>
+                                Message
+                            </label>
+
+                            <textarea
+                                id="leadMessage"
+                                rows="5"
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <button type="submit">
+                        Save Lead
+                    </button>
+
+
+                    <p id="leadMessageText"></p>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <div id="leadModal" class="modal">
+
+        <div class="modal-content">
+
+
+            <button
+                id="closeModal"
+                class="close-btn"
+            >
+                &times;
+            </button>
+
+
+            <h2>
+                Lead Details
+            </h2>
+
+
+            <div id="leadDetails">
+
+            </div>
+
+
+            <hr>
+
+
+            <h3>
+                Follow-up Notes
+            </h3>
+
+
+            <div id="notesList">
+
+            </div>
+
+
+            <form id="noteForm">
+
+                <textarea
+                    id="noteInput"
+                    placeholder="Add a follow-up note..."
+                    rows="4"
+                    required
+                ></textarea>
+
+
+                <button type="submit">
+                    Add Note
+                </button>
+
+            </form>
+
+
+            <p id="noteMessage"></p>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
