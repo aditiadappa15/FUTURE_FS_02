@@ -67,3 +67,22 @@ CRM
 ├── package.json
 ├── README.md
 └── server.js
+
+The application runs at:
+
+http://localhost:5000
+
+Login page:
+
+http://localhost:5000/login.html
+
+Database
+
+The project uses local MongoDB.
+
+MongoDB URL:
+
+mongodb://127.0.0.1:27017
+
+Database name:
+miniCRM
